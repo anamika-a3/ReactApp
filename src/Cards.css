@@ -1,0 +1,22 @@
+.title {
+  padding: 10px;
+}
+.card-content {
+  width: inherit;
+  height: inherit;
+}
+
+.input-section {
+  /* padding: 10px;
+  text-align: center; */
+  padding: 30px;
+}
+.submit-button {
+  /* margin-left: 30%; */
+  margin: 10px;
+}
+.submit-button button {
+  width: 45vh;
+  height: 5vh;
+  font-size: 2vh;
+}

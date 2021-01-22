@@ -1,0 +1,32 @@
+.users-container {
+  /* padding: 10%;
+  margin: 50%; */
+  /* border-style: solid;
+  height: 100vh; */
+  background-image: url('../assets/single-user.png');
+  background-position: right;
+  height: 100vh;
+  overflow: hidden;
+}
+.users-card {
+  /* border-style: solid; */
+  /* border-color: rgb(0, 0, 0); */
+  /* background-color: teal; */
+  margin: 20% 20% 10% 10%;
+  /* border-style: solid;
+  border-color: lime; */
+  /* width: 45%; */
+  /* width: 30%; */
+  width: 55%;
+  overflow: hidden;
+}
+.users-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.users-col {
+  padding: 5%;
+}
+.users-img {
+  height: 200px;
+}

@@ -1,0 +1,20 @@
+.single-resource-container {
+  background-image: url('../assets/sresource.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.card {
+  /* border-style: solid; */
+  /* border-color: rgb(0, 0, 0); */
+  /* background-color: teal; */
+  margin: 5%;
+  /* margin-right: 0%; */
+  width: 30%;
+}
+
+.text h2 {
+  color: #ffffff;
+}

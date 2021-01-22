@@ -1,0 +1,10 @@
+.Paper-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1em;
+  padding: 10%;
+}
+.card-resource {
+  width: inherit;
+  height: inherit;
+}

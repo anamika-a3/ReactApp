@@ -1,0 +1,17 @@
+.login {
+  padding: 10%;
+  height: 80vh;
+  color: #264653;
+  background-image: url(../assets/sign-up.png);
+  background-position: right;
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+}
+.title {
+  padding: 10px;
+}
+.card-content {
+  margin: 8%;
+  width: 50%;
+  height: 50%;
+}
