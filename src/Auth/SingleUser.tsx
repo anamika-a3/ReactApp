@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography'
 // import './style.css'
 import './SingleUser.css'
 
-interface UserSchema {
+interface IUserSchema {
   id?: number
   email?: string
   first_name?: string
@@ -25,7 +25,7 @@ interface IUrlParams {
 interface Props extends RouteComponentProps {}
 
 const SingleUser: React.FC<Props> = ({ history, location, match }) => {
-  const [user, setUser] = useState<UserSchema>({})
+  const [user, setUser] = useState<IUserSchema>({})
   const { id } = useParams<IUrlParams>()
 
   async function userGet () {
