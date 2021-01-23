@@ -1,10 +1,9 @@
-import React, { Fragment, useState } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import React, { useState } from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 import { onSignUp } from './auth.api'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import api from '../utils/Api'
+import axios from 'axios'
 
 const useStyles = makeStyles({
   root: {
@@ -14,31 +13,11 @@ const useStyles = makeStyles({
 
 interface Props extends RouteComponentProps {}
 
-export const Create: React.FC<Props> = ({ history, location, match }) => {
-  // const fetchUsers = () => {
-  //   // Where we're fetching data from
-  //   // fetch(`https://reqres.in/login`)
-  //   // We get the API response and receive data in JSON format...
-  //   // .then(response => response.json())
-  //   // ...then we update the users state
-  //   // .then(data =>
-  //   // this.setState({
-  //   //   users: data,
-  //   //   isLoading: false,
-  //   // })
-  //   //)
-  //   // Catch any errors we hit and update the app
-  //   // .catch(error => this.setState({ error, isLoading: false }));
-  // }
+export const Create: React.FC<Props> = ({ history }) => {
+  const [name, setName] = useState('')
+  const [job, setJob] = useState('')
 
-  //   const [newUser, setNewUser] = useState(false)
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [error, setError] = useState('')
-
-  const create = async (event: React.FormEvent) => {
+  async function handleCreate (event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     const response = await onSignUp({
       firstName: '',
@@ -56,18 +35,15 @@ export const Create: React.FC<Props> = ({ history, location, match }) => {
   async function handleRegistration (event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     try {
-      const response = await api.Register({
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        password: password
-      })
+      const response = await axios.get(`https://reqres.in/api/users`)
       console.log(response)
       alert('User Created')
+      history.push('/profiles')
     } catch (error) {
       console.log(error)
       console.log(error.response)
       alert('Something went Wrong')
+      history.push('/')
     }
 
     // // if ((await response).statusText === 'OK') {
@@ -97,13 +73,15 @@ export const Create: React.FC<Props> = ({ history, location, match }) => {
     <div className='login'>
       <div className='card-content'>
         <h1>Create Page</h1>
-        <form className='formLayout'>
+        <form onSubmit={handleCreate} className='formLayout'>
           <TextField
             id='outlined-basic'
             label='Enter New Name'
             variant='outlined'
             type='text'
             placeholder='Required'
+            value={name}
+            onChange={e => setName(e.target.value)}
             className='input'
             required
           />
@@ -112,8 +90,10 @@ export const Create: React.FC<Props> = ({ history, location, match }) => {
             id='outlined-basic'
             label='Enter New Job'
             variant='outlined'
-            type='email'
+            type='text'
             placeholder='Required'
+            value={job}
+            onChange={e => setJob(e.target.value)}
             className='input'
             required
           />

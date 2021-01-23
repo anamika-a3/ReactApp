@@ -15,13 +15,13 @@ export interface CredentialsSignUp {
   password: string
 }
 
-export interface CredentialsListUsers {
-  id: number
-  email: string
-  first_name: string
-  last_name: string
-  avatar: string
-}
+// export interface CredentialsListUsers {
+//   id: number
+//   email: string
+//   first_name: string
+//   last_name: string
+//   avatar: string
+// }
 export const onLogin = async (data: Credentials) => {
   const requestConfig: AxiosRequestConfig = {
     method: 'post',

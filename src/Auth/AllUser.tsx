@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Link, RouteComponentProps } from 'react-router-dom'
+import { RouteComponentProps } from 'react-router-dom'
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import CardActions from '@material-ui/core/CardActions'
@@ -11,8 +11,8 @@ import Typography from '@material-ui/core/Typography'
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import './Resource.css'
-// import api from 'auth.api.ts'
-interface UserSchema {
+
+interface IUserSchema {
   id: number
   email: string
   first_name: string
@@ -24,6 +24,10 @@ interface Props extends RouteComponentProps {}
 
 const AllUser: React.FC<Props> = ({ history, location, match }) => {
   const [users, setUsers] = useState<[]>([])
+
+  useEffect(() => {
+    usersGet()
+  }, [])
 
   async function usersGet () {
     var response = axios.get(`https://reqres.in/api/users?page=2`)
@@ -48,7 +52,7 @@ const AllUser: React.FC<Props> = ({ history, location, match }) => {
   return (
     <div className='Paper-container'>
       {users.length &&
-        users.map((user: UserSchema) => (
+        users.map((user: IUserSchema) => (
           <Card className='card-resource'>
             <CardContent>
               <h2>User Id:{user.id}</h2>
